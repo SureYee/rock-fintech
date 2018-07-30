@@ -8,8 +8,6 @@
 
 namespace Sureyee\RockFinTech;
 
-
-use GuzzleHttp\RequestOptions;
 use Sureyee\RockFinTech\Exceptions\DecryptException;
 use Sureyee\RockFinTech\Exceptions\ResponseException;
 use Sureyee\RockFinTech\Exceptions\RsaKeyNotFoundException;
