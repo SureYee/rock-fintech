@@ -1,0 +1,27 @@
+{
+    "name": "sureyee/rock-fintech",
+    "description": "rock fintch api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "yixu",
+            "email": "yixu@sureyee.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sureyee\\RockFinTech\\": "src"
+        },
+        "files": [
+            "src/helpers/helpers.php"
+        ]
+    }
+}
