@@ -66,20 +66,34 @@ class Request
     /**
      * 设置签名
      * @param $sign
+     * @return $this
      */
     public function setSign($sign)
     {
         $this->params['sign'] = $sign;
+        return $this;
     }
 
     public function setClient($client)
     {
         $this->params['client'] = $client;
+        return $this;
     }
 
     public function setHeaders(array $headers)
     {
         $this->headers = array_merge($this->headers, $headers);
+        return $this;
+    }
+
+    /**
+     * @param string $service
+     * @return $this
+     */
+    public function setService(string $service)
+    {
+        $this->params['service'] = $service;
+        return $this;
     }
 
     /**
