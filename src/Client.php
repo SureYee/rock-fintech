@@ -126,7 +126,7 @@ class Client
             if (is_array($param)) {
                 $string[] = $assoc
                     ? $key . '=' . $this->paramsToString($param, isAssocArray($param))
-                    : $this-> $this->paramsToString($param, isAssocArray($param));
+                    : $this->paramsToString($param, isAssocArray($param));
             } else {
                 $string[] = $assoc ? $key . '=' . $param : $param;
             }
