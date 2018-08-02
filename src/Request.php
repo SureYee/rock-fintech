@@ -36,7 +36,7 @@ class Request
      */
     public function __construct(string $service = null, $custom = null)
     {
-        $this->params['service'] = $service;
+        $this->setService($service);
         $this->params['version'] = $this->version;
         $this->params['uuid'] = uuid();
         $this->params['sign_type'] = 'MD5';
