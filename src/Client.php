@@ -124,7 +124,9 @@ class Client
         $string = [];
         foreach ($params as $key => $param) {
             if (is_array($param)) {
-                $string[] = $key . '=' . $this->paramsToString($param, isAssocArray($param));
+                $string[] = $assoc
+                    ? $key . '=' . $this->paramsToString($param, isAssocArray($param))
+                    : $this-> $this->paramsToString($param, isAssocArray($param));
             } else {
                 $string[] = $assoc ? $key . '=' . $param : $param;
             }
