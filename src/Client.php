@@ -83,7 +83,7 @@ class Client
 
 
         // 发送http请求
-        $response = $this->http->send($httpRequest, ['debug' => true]);
+        $response = $this->http->send($httpRequest);
 
 
 
