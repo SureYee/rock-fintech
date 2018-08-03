@@ -104,13 +104,24 @@ class Client
      * @param $params
      * @return string
      */
-    protected function makeSign($params)
+    protected function makeSign(array $params):string
     {
-        kSortRecursive($params);
         unset($params['sign']);
+        kSortRecursive($params);
         $paramsString = $this->paramsToString($params);
 
         return md5($paramsString . md5($this->key . $this->secret));
+    }
+
+    /**
+     * 验签
+     * @param array $params
+     * @return bool
+     */
+    public function validSign(array $params)
+    {
+        return  array_key_exists('sign', $params)
+            &&  $params['sign'] === $this->makeSign($params);
     }
 
     /**
