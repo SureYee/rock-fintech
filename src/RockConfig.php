@@ -81,5 +81,8 @@ class RockConfig
     const ORDER_ASC = 1; // 正序
     const ORDER_DESC = 2; // 倒序
 
+    // 银行账户类型
+    const BANK_TYPE_COMMON = 'private'; // 个人户
+    const BANK_TYPE_COMPANY = 'public'; // 个人户
 
 }
