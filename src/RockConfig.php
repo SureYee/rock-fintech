@@ -83,6 +83,6 @@ class RockConfig
 
     // 银行账户类型
     const BANK_TYPE_COMMON = 'private'; // 个人户
-    const BANK_TYPE_COMPANY = 'public'; // 个人户
+    const BANK_TYPE_COMPANY = 'public'; // 企业户
 
 }

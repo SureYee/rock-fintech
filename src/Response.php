@@ -45,4 +45,9 @@ class Response implements ResponseInterface
     {
         return array_key_exists($name, $this->response) ? $this->response[$name] : null;
     }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
 }
