@@ -18,4 +18,6 @@ interface ResponseInterface
     public function isSuccess();
 
     public function getMessage();
+
+    public function toArray();
 }

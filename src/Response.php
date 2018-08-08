@@ -41,6 +41,11 @@ class Response implements ResponseInterface
         return $this->msg;
     }
 
+    public function toArray()
+    {
+        return $this->response;
+    }
+
     public function __get($name)
     {
         return array_key_exists($name, $this->response) ? $this->response[$name] : null;
