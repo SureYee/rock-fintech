@@ -33,6 +33,11 @@ class ItemResponse implements ResponseInterface
         return $this->message;
     }
 
+    public function getCode()
+    {
+        return $this->code;
+    }
+
     public function toArray()
     {
         return $this->response;

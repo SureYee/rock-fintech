@@ -20,4 +20,6 @@ interface ResponseInterface
     public function getMessage();
 
     public function toArray();
+
+    public function getCode();
 }
