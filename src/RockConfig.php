@@ -85,4 +85,29 @@ class RockConfig
     const BANK_TYPE_COMMON = 'private'; // 个人户
     const BANK_TYPE_COMPANY = 'public'; // 企业户
 
+    // 签约状态
+    const SIGN_FLAG_HAVING = 'having'; // 签约
+    const SIGN_FLAG_REVOKING = 'revoking'; // 未签约
+
+    // 签约类型
+    const INTERFACE_TYPE_TRANS = 'trans'; // 自动债权转让签约t
+    const INTERFACE_TYPE_BID = 'bid'; // 投资人自动投标签约
+    const INTERFACE_TYPE_TRANSFER = 'transfer'; // 转让方转让手续费签约
+    const INTERFACE_TYPE_PAYMENT = 'payment'; // 放款手续费签约
+    const INTERFACE_TYPE_REPAYMENT = 'repayment'; // 借款人还款金额签约
+
+    // 付息方式
+    const INTEREST_TYPE_EQUAL = 1 ; // 等额本息
+    const INTEREST_TYPE_INTEREST = 2; // 先息后本
+    const INTEREST_TYPE_EQUAL_CORPUS = 3; // 等额本金
+    const INTEREST_TYPE_EQUAL_RATIO = 4; // 等比累进
+    const INTEREST_TYPE_EQUAL_PLUS = 5; // 等额累进
+    const INTEREST_TYPE_COMBINATION = 6; // 组合还款
+    const INTEREST_TYPE_OTHER = 7; // 其他
+
+    // 标的类型
+    const TRUSTEE_PAY_FLAG_NORMAL = 1; // 普通
+    const TRUSTEE_PAY_FLAG_COMMISSIONED = 2; // 受托
+
+
 }
