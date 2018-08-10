@@ -21,9 +21,9 @@ class Request
 
     public $method = 'POST';
 
-    public $headers = [
+    public $headers = [];
 
-    ];
+
     /**
      * @var array $params
      */
@@ -34,7 +34,7 @@ class Request
      * @param $service string
      * @param $custom mixed
      */
-    public function __construct(string $service = null, $custom = null)
+    public function __construct(string $service, $custom = null)
     {
         $this->params['service'] = $service;
         $this->params['version'] = $this->version;
@@ -83,16 +83,6 @@ class Request
     public function setHeaders(array $headers)
     {
         $this->headers = array_merge($this->headers, $headers);
-        return $this;
-    }
-
-    /**
-     * @param string $service
-     * @return $this
-     */
-    public function setService(string $service)
-    {
-        $this->params['service'] = $service;
         return $this;
     }
 
