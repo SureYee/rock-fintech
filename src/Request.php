@@ -50,14 +50,6 @@ class Request
         $this->params = array_merge($this->params, $params);
     }
 
-    public function getParam($param)
-    {
-        if (array_key_exists($param, $this->params)) {
-            return $this->params[$param];
-        }
-        return null;
-    }
-
     public function getParams()
     {
         return $this->params;
@@ -122,6 +114,14 @@ class Request
     public function __set($name, $value)
     {
         $this->params[$name] = $value;
+    }
+
+    public function __get($param)
+    {
+        if (array_key_exists($param, $this->params)) {
+            return $this->params[$param];
+        }
+        return null;
     }
 
     public function __toString()
