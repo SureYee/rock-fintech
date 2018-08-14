@@ -11,7 +11,7 @@ namespace Sureyee\RockFinTech;
 
 class Request
 {
-    protected static $prod_uri = '';
+    protected static $prod_uri = 'https://deposit.srbank.cn/2.0.0/deposit';
 
     protected static $dev_uri = 'https://depositapiuat.rockfintech.com/2.0.0/deposit';
 
