@@ -64,6 +64,7 @@ class Client
      * @throws DecryptException
      * @throws ResponseException
      * @throws RsaKeyNotFoundException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function request(Request $request)
     {
