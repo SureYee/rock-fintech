@@ -76,4 +76,14 @@ class Response implements ResponseInterface
     {
         return $this->allSuccess ?? $this->isSuccess();
     }
+
+    public function getErrorItems()
+    {
+        return $this->errorItems;
+    }
+
+    public function getSuccessItems()
+    {
+        return $this->successItems;
+    }
 }
