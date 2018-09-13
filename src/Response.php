@@ -20,12 +20,23 @@ class Response implements ResponseInterface
 
     protected $items = [];
 
+    protected $allSuccess = false;
+
+    protected $successItems = [];
+
+    protected $errorItems = [];
+
 
     public function __construct(array $response)
     {
         if (array_key_exists('items', $response)) {
             $this->items = array_map(function ($item) {
-                return new ItemResponse($item);
+                $itemResponse =  new ItemResponse($item);
+                $itemResponse->isSuccess()
+                    ? array_push($this->successItems, $itemResponse)
+                    : array_push($this->errorItems, $itemResponse);
+                $this->allSuccess = empty($this->errorItems) ? true : false;
+                return $itemResponse;
             }, $response['items']);
         }
         $this->response = $response;
@@ -33,7 +44,7 @@ class Response implements ResponseInterface
 
     public function isSuccess()
     {
-        return $this->code === static::ROCK_REQUEST_SUCCESS;
+        return $this->getCode() === static::ROCK_REQUEST_SUCCESS;
     }
 
     public function getMessage()
@@ -59,5 +70,10 @@ class Response implements ResponseInterface
     public function getItems()
     {
         return $this->items;
+    }
+
+    public function allSuccess()
+    {
+        return $this->allSuccess;
     }
 }
