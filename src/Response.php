@@ -20,7 +20,7 @@ class Response implements ResponseInterface
 
     protected $items = [];
 
-    protected $allSuccess = false;
+    protected $allSuccess = null;
 
     protected $successItems = [];
 
@@ -74,6 +74,6 @@ class Response implements ResponseInterface
 
     public function allSuccess()
     {
-        return $this->allSuccess;
+        return $this->allSuccess ?? $this->isSuccess();
     }
 }
