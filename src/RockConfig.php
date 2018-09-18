@@ -109,5 +109,10 @@ class RockConfig
     const TRUSTEE_PAY_FLAG_NORMAL = 1; // 普通
     const TRUSTEE_PAY_FLAG_COMMISSIONED = 2; // 受托
 
+    // 交易类型
+    const TRANSACTION_RECHARGE = 'recharge'; // 充值
+    const TRANSACTION_WITHDRAW = 'withdraw'; // 提现
+    const TRANSACTION_NET_PAY = 'netpay'; // 网银充值
+
 
 }
