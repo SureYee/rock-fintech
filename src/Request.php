@@ -72,6 +72,30 @@ class Request
         return $this;
     }
 
+    /**
+     * @param $ip
+     * @return $this
+     */
+    public function setIp($ip)
+    {
+        $this->params['client_ip'] = $ip;
+        return $this;
+    }
+
+    /**
+     * @param $mac
+     * @return $this
+     */
+    public function setMac($mac)
+    {
+        $this->params['client_service'] = $mac;
+        return $this;
+    }
+
+    /**
+     * @param array $headers
+     * @return $this
+     */
     public function setHeaders(array $headers)
     {
         $this->headers = array_merge($this->headers, $headers);

@@ -40,21 +40,29 @@ class Client
      */
     protected $http;
 
+    protected $ip;
+
+    protected $mac;
+
     /**
      * Client constructor.
      * @param $rft_key
      * @param $rft_secret
      * @param $rft_org string 商户号
+     * @param  string $ip 上送的服务器ip
+     * @param  string $mac 上送的服务器mac
      * @param string $pub_key
      * @param string $pri_key
      */
-    public function __construct($rft_key, $rft_secret, $rft_org, $pub_key = './public.key', $pri_key = './private.key')
+    public function __construct($rft_key, $rft_secret, $rft_org,$mac, $ip = null,  $pub_key = './public.key', $pri_key = './private.key')
     {
         $this->key = $rft_key;
         $this->secret = $rft_secret;
         $this->org = $rft_org;
         $this->pub_key = $pub_key;
         $this->pri_key = $pri_key;
+        $this->mac = $mac;
+        $this->ip = $ip ?? $_SERVER['SERVER_ADDR'];
         $this->http = new \GuzzleHttp\Client();
     }
 
@@ -68,25 +76,21 @@ class Client
      */
     public function request(Request $request)
     {
-        $request->setClient(self::ROCK_PC_CLIENT);
-        $request->setHeaders([
-            'rft-key' => $this->key,
-            'rft-token' => $this->secret,
-            'rft-org' => $this->org,
-        ]);
-
-        // 生成sign
-        $request->setSign($this->makeSign($request->getParams()));
-
+        $request->setClient(self::ROCK_PC_CLIENT)
+            ->setHeaders([
+                'rft-key' => $this->key,
+                'rft-token' => $this->secret,
+                'rft-org' => $this->org,
+            ])
+            ->setIp($this->ip)
+            ->setMac($this->mac)
+            ->setSign($this->makeSign($request->getParams()));
 
         // 生成request
         $httpRequest = new \GuzzleHttp\Psr7\Request($request->method, $request->getUri(), $request->headers, $this->encrypt($request) );
 
-
         // 发送http请求
         $response = $this->http->send($httpRequest);
-
-
 
         if ($response->getStatusCode() !== 200) {
             throw new ResponseException($response->getStatusCode(), $response->getReasonPhrase());
